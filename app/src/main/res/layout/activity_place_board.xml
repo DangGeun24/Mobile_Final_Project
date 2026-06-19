@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F2F5"
+    android:fitsSystemWindows="true">
+
+    <!-- 상단 앱바 -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+        
+        <TextView
+            android:id="@+id/tvBoardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="장소 게시판"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@+id/paginationContainer"
+        android:clipToPadding="false"
+        android:paddingVertical="8dp"/>
+
+    <!-- 페이지 번호 들어갈 영역 -->
+    <LinearLayout
+        android:id="@+id/paginationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomBar"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:background="#F0F2F5" />
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="16dp">
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWritePost"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="글쓰기"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#3F51B5"/>
+    </LinearLayout>
+
+</RelativeLayout>

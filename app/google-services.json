@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "381633834586",
+    "project_id": "mapstalk-a3a2a",
+    "storage_bucket": "mapstalk-a3a2a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381633834586:android:95cf725817c8bc513ef263",
+        "android_client_info": {
+          "package_name": "com.example.mapstalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV2IYigWXdTa2z-QzSBbWlUjJ-yuKH0Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
