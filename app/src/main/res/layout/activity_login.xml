@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -19,16 +20,28 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:paddingStart="4dp"
         android:hint="이메일"
         android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/etPassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:hint="비밀번호"
-        android:inputType="textPassword" />
+        app:hintEnabled="false"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:textSize="18sp"
+            android:paddingStart="4dp"
+            android:hint="비밀번호"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"

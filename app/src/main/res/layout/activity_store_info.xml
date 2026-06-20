@@ -1,40 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:background="#F0F2F5"
     android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/tvPlaceName"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:padding="10dp"/>
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
 
-    <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#888888"
-        android:padding="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvLatLng"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장소 상세 정보"
+                android:textSize="14sp"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPlaceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="24dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="위치 좌표"
+                android:textSize="12sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvLatLng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#888888"
+                android:fontFamily="monospace"/>
+
+            <!-- 커스텀 장소 소유자 전용 액션 버튼 -->
+            <LinearLayout
+                android:id="@+id/layoutCustomPlaceActions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="24dp">
+
+                <Button
+                    android:id="@+id/btnEditPlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="장소명 수정"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FF9800"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btnDeletePlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="장소 삭제"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#F44336"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="#AAAAAA"
-        android:padding="10dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <Button
         android:id="@+id/btnGoBoard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="장소 게시판 이동"
-        android:layout_marginTop="20dp"/>
+        android:layout_height="60dp"
+        android:text="이 장소 게시판 입장하기"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2196F3"
+        android:layout_margin="16dp"/>
 
 </LinearLayout>

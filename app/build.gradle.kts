@@ -63,6 +63,7 @@ dependencies {
   // Google Maps & Places
   implementation("com.google.android.gms:play-services-maps:18.2.0")
   implementation("com.google.android.libraries.places:places:3.3.0")
+  implementation("com.google.android.gms:play-services-location:21.2.0")
   
   // RecyclerView
   implementation("androidx.recyclerview:recyclerview:1.3.2")

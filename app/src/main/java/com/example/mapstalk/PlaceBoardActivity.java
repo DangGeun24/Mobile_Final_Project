@@ -45,8 +45,13 @@ public class PlaceBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_board);
 
         placeId = getIntent().getStringExtra("EXTRA_PLACE_ID");
+        String placeName = getIntent().getStringExtra("EXTRA_PLACE_NAME");
+        
         if (placeId == null) {
             placeId = "UNKNOWN_PLACE";
+        }
+        if (placeName == null || placeName.isEmpty()) {
+            placeName = placeId;
         }
 
         db = FirebaseFirestore.getInstance();
@@ -56,7 +61,7 @@ public class PlaceBoardActivity extends AppCompatActivity {
         btnWritePost = findViewById(R.id.btnWritePost);
         paginationContainer = findViewById(R.id.paginationContainer);
 
-        tvBoardTitle.setText(placeId + " 게시판");
+        tvBoardTitle.setText(placeName + " 게시판");
 
         adapter = new PostAdapter(displayPostList);
         rvPosts.setLayoutManager(new LinearLayoutManager(this));

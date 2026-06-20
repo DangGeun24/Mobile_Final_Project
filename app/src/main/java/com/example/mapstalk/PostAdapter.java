@@ -58,6 +58,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             holder.tvPostNumber.setVisibility(View.GONE);
         }
 
+        String authorUid = (String) post.get("authorUid");
+        if (authorUid != null) {
+            com.google.firebase.firestore.FirebaseFirestore.getInstance().collection("Users").document(authorUid).get()
+                .addOnSuccessListener(doc -> {
+                    if (doc.exists() && doc.getString("name") != null) {
+                        holder.tvPostAuthor.setText(doc.getString("name"));
+                    } else {
+                        holder.tvPostAuthor.setText("이름 없음");
+                    }
+                });
+        } else {
+            holder.tvPostAuthor.setText("익명");
+        }
+
         holder.itemView.setOnClickListener(v -> {
             String postId = (String) post.get("postId");
             if (postId != null) {
@@ -74,7 +88,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvPostTitle, tvPostContent, tvPostDate, tvPostNumber;
+        TextView tvPostTitle, tvPostContent, tvPostDate, tvPostNumber, tvPostAuthor;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +96,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvPostContent = itemView.findViewById(R.id.tvPostContent);
             tvPostDate = itemView.findViewById(R.id.tvPostDate);
             tvPostNumber = itemView.findViewById(R.id.tvPostNumber);
+            tvPostAuthor = itemView.findViewById(R.id.tvPostAuthor);
         }
     }
 }

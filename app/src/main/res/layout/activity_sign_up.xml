@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,34 +18,90 @@
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:paddingStart="4dp"
         android:hint="이름(닉네임)"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:paddingStart="4dp"
         android:hint="이메일"
         android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/etPassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="비밀번호"
-        android:inputType="textPassword" />
+        app:hintEnabled="false"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:passwordToggleEnabled="true">
 
-    <EditText
-        android:id="@+id/etPasswordConfirm"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:textSize="18sp"
+            android:paddingStart="4dp"
+            android:hint="비밀번호"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:hintEnabled="false"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPasswordConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:textSize="18sp"
+            android:paddingStart="4dp"
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 자동가입방지 (CAPTCHA) 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginBottom="24dp"
-        android:hint="비밀번호 확인"
-        android:inputType="textPassword" />
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvCaptcha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:gravity="center"
+            android:background="#E8EAF6"
+            android:padding="8dp"/>
+
+        <EditText
+            android:id="@+id/etCaptchaInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:hint="왼쪽 숫자를 입력하세요"
+            android:inputType="number"
+            android:layout_marginStart="16dp"
+            android:textSize="14sp"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnSignUp"

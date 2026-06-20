@@ -12,14 +12,23 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
 
     private List<PlaceItem> placeList;
     private OnItemClickListener listener;
+    private OnItemLongClickListener longClickListener;
 
     public interface OnItemClickListener {
         void onItemClick(PlaceItem item);
     }
 
+    public interface OnItemLongClickListener {
+        boolean onItemLongClick(PlaceItem item);
+    }
+
     public PlaceAdapter(List<PlaceItem> placeList, OnItemClickListener listener) {
         this.placeList = placeList;
         this.listener = listener;
+    }
+
+    public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+        this.longClickListener = listener;
     }
 
     @NonNull
@@ -36,6 +45,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         holder.tvName.setText(item.getName());
         holder.tvAddress.setText(item.getAddress());
         holder.itemView.setOnClickListener(v -> listener.onItemClick(item));
+        holder.itemView.setOnLongClickListener(v -> {
+            if (longClickListener != null) {
+                return longClickListener.onItemLongClick(item);
+            }
+            return false;
+        });
     }
 
     @Override

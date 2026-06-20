@@ -35,6 +35,7 @@
         <activity android:name=".StoreInfoActivity" android:exported="false" />
         <activity android:name=".PlaceBoardActivity" android:exported="false" />
         <activity android:name=".PostDetailActivity" android:exported="false" />
+        <activity android:name=".MyPageActivity" android:exported="false" />
     </application>
 
 </manifest>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvCommentAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user@example.com"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#555555"/>
+
+    <TextView
+        android:id="@+id/tvCommentContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="댓글 내용입니다."
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvCommentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2023-01-01"
+        android:textSize="10sp"
+        android:textColor="#AAAAAA"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>
